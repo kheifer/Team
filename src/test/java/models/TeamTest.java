@@ -97,9 +97,9 @@ public class TeamTest {
     public void Team_searchByTeamMate_11() throws Exception {
         Team testTeam = setupTeam();
         Team secondTeam = setupTeam2();
-        secondTeam.setMembers("Scott Maxwell");
+        testTeam.setMembers("Scott Maxwell");
         Team searchTeam = Team.searchByMember("Scott Maxwell");
-        assertEquals("Predators", searchTeam.getTeamName());
+        assertEquals("Cobras", searchTeam.getTeamName());
     }
 
 
