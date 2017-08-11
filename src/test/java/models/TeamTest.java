@@ -22,7 +22,7 @@ public class TeamTest {
     @Test
     public void newTeaminstantiateswithContent_2() throws Exception {
         Team testTeam = setupTeam();
-        assertEquals("Cobra", testTeam.getTeamName());
+        assertEquals("Cobras", testTeam.getTeamName());
     }
 
 
