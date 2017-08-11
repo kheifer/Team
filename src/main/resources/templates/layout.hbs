@@ -1,0 +1,38 @@
+{{#block "header"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+       <title></title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="/main.css">
+        <link rel="stylesheet" href="/images/other.css">
+
+    </head>
+    <body>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/" class="active">See All Teams</a></li>
+        <li role="presentation"><a href="/restaurants/new">Add a New Team</a></li>
+        <li role="presentation"><a href="/search">Search</a></li>
+    </ul>
+{{/block}}
+        <div class="container">
+
+{{#block "content"}}
+
+{{/block}}
+        </div>
+{{#block "footer"}}
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a href="/delete">DELETE ALL TEAMS</a></p>
+            <p>Photo by Matthias Heil on Unsplash</p>
+        </div>
+    </footer>
+
+    </body>
+    </html>
+{{/block}}

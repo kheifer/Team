@@ -1,2 +1,26 @@
+import static spark.Spark.*;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+import models.Team;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
+    public static void main(String[] args) {
+        staticFileLocation("/public");
+
+        //get: homepage/displays all teams
+        get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("teams", Team.getAll());
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+        //get: show form to enter new post
+        get("/teams/new",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model,"add-team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+    }
 }

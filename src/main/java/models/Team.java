@@ -18,7 +18,6 @@ public class Team {
         this.id = incrementTeam;
         teams.add(this);
     }
-
     public static void clearAllTeams() {
         incrementTeam = 0;
         teams.clear();

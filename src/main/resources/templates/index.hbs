@@ -1,0 +1,17 @@
+{{#partial "content"}}
+    <h1>List of Teams:</h1>
+
+    {{#if teams}}
+        <ul>
+            {{#each teams}}
+                <li><a href="/teams/{{id}}">{{teamName}}</a></li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No Teams added!</p>
+    {{/if}}
+
+
+{{/partial}}
+
+{{> layout.hbs}}
