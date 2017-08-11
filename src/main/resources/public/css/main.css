@@ -1,0 +1,15 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+ .footer {
+     position: fixed;
+     bottom: 0;
+ }
