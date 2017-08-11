@@ -7,16 +7,16 @@ public class Team {
     private String description;
     private static ArrayList<Team> teams = new ArrayList<Team>();
     private ArrayList<String> members;
-    private Integer id;
+    private int id;
     private static int incrementTeam;
 
     public Team(String teamName, String description){
         this.teamName = teamName;
         this.description = description;
         members = new ArrayList<String>();
+        teams.add(this);
         incrementTeam++;
         this.id = incrementTeam;
-        teams.add(this);
     }
 
     public static void clearAllTeams() {
@@ -36,6 +36,10 @@ public class Team {
     }
     public ArrayList<String> getMembers() {
         return members;
+    }
+
+    public int getId() {
+        return id;
     }
 
     //Setters

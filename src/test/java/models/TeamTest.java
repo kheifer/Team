@@ -65,6 +65,12 @@ public class TeamTest {
         Team.clearAllTeams();
         assertEquals(0, Team.getAll().size());
     }
+    @Test
+    public void Team_createsAUniqueId_8() throws Exception {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        assertEquals(1, testTeam.getId());
+    }
 
 
     public Team setupTeam(){
