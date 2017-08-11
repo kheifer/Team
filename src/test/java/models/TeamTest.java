@@ -13,6 +13,7 @@ public class TeamTest {
 
     @After
     public void tearDown() throws Exception {
+
     }
     @Test
     public void NewTestObjectGetsCorrectlyCreated_true_2() throws Exception {
@@ -24,7 +25,13 @@ public class TeamTest {
         Team testTeam = setupTeam();
         assertEquals("Cobras", testTeam.getTeamName());
     }
-
+    @Test
+    public void all_returnsAllInstancesOfTeam_true() {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("TeamTwo", "Dagger");
+        assertEquals(true, Team.getAll().contains(testTeam));
+        assertEquals(true, Team.getAll().contains(secondTeam));
+    }
 
 
     public Team setupTeam(){
