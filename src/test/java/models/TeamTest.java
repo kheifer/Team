@@ -15,12 +15,19 @@ public class TeamTest {
     public void tearDown() throws Exception {
     }
     @Test
-    public void NewTestObjectGetsCorrectlyCreated_true() throws Exception {
+    public void NewTestObjectGetsCorrectlyCreated_true_2() throws Exception {
         Team testTeam = setupTeam();
         assertEquals(true, testTeam instanceof Team);
     }
+    @Test
+    public void newTeaminstantiateswithContent_2() throws Exception {
+        Team testTeam = setupTeam();
+        assertEquals("Cobra", testTeam.getTeamName());
+    }
+
+
 
     public Team setupTeam(){
-        return new Team ();
+        return new Team ("Cobras","Lazer");
     }
 }
