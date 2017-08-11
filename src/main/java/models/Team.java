@@ -39,10 +39,11 @@ public class Team {
     }
     public static Team searchByMember(String memberName){
         Team finder= null;
-        for (Team team : teams){
-            for(String member:team.members)
-            if(member == memberName){
-                finder = team;
+        for (Team team : teams) {
+            for (String member : team.members) {
+                if (member.equals(memberName)) {
+                    finder = team;
+                }
             }
         }
         return finder;

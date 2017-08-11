@@ -54,5 +54,20 @@ public class App {
             model.put("newMembers", newMembers);
             return new ModelAndView(model,"team-detail.hbs");
         }, new HandlebarsTemplateEngine());
+        //Get: Search by teammate form
+        get("/search",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model,"search.hbs");
+        }, new HandlebarsTemplateEngine());
+        //Post: Show team by search name
+        post("/search", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String memberName = request.queryParams("memberName");
+            Team newTeam = Team.searchByMember(memberName);
+            ArrayList<String> searchMembers = newTeam.getMembers();
+            model.put("newTeam", newTeam);
+            model.put("newMembers", searchMembers);
+            return new ModelAndView(model,"search.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
