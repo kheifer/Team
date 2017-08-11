@@ -8,15 +8,15 @@ public class Team {
     private static ArrayList<Team> teams = new ArrayList<Team>();
     private ArrayList<String> members;
     private int id;
-    private static int incrementTeam;
+    private static int incrementTeam = 0;
 
     public Team(String teamName, String description){
         this.teamName = teamName;
         this.description = description;
         members = new ArrayList<String>();
-        teams.add(this);
         incrementTeam++;
         this.id = incrementTeam;
+        teams.add(this);
     }
 
     public static void clearAllTeams() {
@@ -24,7 +24,13 @@ public class Team {
         teams.clear();
     }
     public static Team findById(int id){
-        return null;
+        Team find= null;
+        for (Team team : teams){
+            if(team.getId() == id){
+                find = team;
+            }
+        }
+        return find;
     }
     //Getters
     public String getTeamName() {

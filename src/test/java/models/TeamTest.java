@@ -76,7 +76,7 @@ public class TeamTest {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         assertEquals(1, testTeam.findById(testTeam.getId()).getId());
-        assertEquals("Tin Shed", Team.findById(secondTeam.getId()).getTeamName());
+        assertEquals("Average Joe's", Team.findById(secondTeam.getId()).getTeamName());
     }
 
 
