@@ -26,11 +26,21 @@ public class TeamTest {
         assertEquals("Cobras", testTeam.getTeamName());
     }
     @Test
-    public void all_returnsAllInstancesOfTeam_true() {
+    public void all_returnsAllInstancesOfTeam_3() {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         assertEquals(true, Team.getAll().contains(testTeam));
         assertEquals(true, Team.getAll().contains(secondTeam));
+    }
+    @Test
+    public void teamsetMembers_4() {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        testTeam.setMembers("Dagger");
+        testTeam.setMembers("Max");
+        secondTeam.setMembers("Blaze");
+        assertEquals(2, testTeam.getMembers().size());
+        assertEquals("Blaze", secondTeam.getMembers().get(0));
     }
 
 
