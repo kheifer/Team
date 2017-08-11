@@ -37,8 +37,23 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             int idOfTeam = Integer.parseInt(request.params("id"));
             Team newTeam = Team.findById(idOfTeam);
+            ArrayList<String> newMembers = newTeam.getMembers();
             model.put("newTeam", newTeam);
+            model.put("newMembers", newMembers);
             return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+        //Post: add new members
+        //Post: add new members
+        post("/teams/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String newTeamMate = request.queryParams("newTeamMate");
+            int idOfTeam = Integer.parseInt(request.params("id"));
+            Team newTeam = Team.findById(idOfTeam);
+            ArrayList<String> newMembers = newTeam.getMembers();
+            newTeam.setMembers(newTeamMate);
+            model.put("newTeam", newTeam);
+            model.put("newMembers", newMembers);
+            return new ModelAndView(model,"team-detail.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

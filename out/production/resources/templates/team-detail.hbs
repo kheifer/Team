@@ -5,11 +5,24 @@
             <li>Team Description:<br> {{newTeam.teamDescription}}</li>
             <li>Team members:<li>
             <ul>
-
+        {{#if newMembers}}
+            {{#each newMembers}}
+                <li>{{this}}</li>
+            {{/each}}
+            {{else}}
+            <p>There are no member's currently listed.</p>
+        {{/if}}
             </ul>
         </ul>
     {{else}}
         <p>No Teams to display!</p>
     {{/if}}
+
+    <form action="/teams/{{newTeam.id}}" method="post">
+        <label for="newTeamMate">Add a new teammate:</label>
+        <input id="newTeamMate" name="newTeamMate" type="text">
+        <button type="submit" class="btn btn-success">Go!</button>
+    </form>
 {{/partial}}
+
 {{> layout.hbs}}

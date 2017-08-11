@@ -38,7 +38,7 @@ public class TeamTest {
         assertEquals(true, Team.getAll().contains(secondTeam));
     }
     @Test
-    public void teamSetMembers_5() {
+    public void teamAddMembers_5() {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         testTeam.setMembers("Dagger");
