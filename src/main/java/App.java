@@ -20,7 +20,7 @@ public class App {
         //get: show form to enter new post
         get("/teams/new",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model,"add-team-form.hbs");
+            return new ModelAndView(model,"newTeam-form.hbs");
         }, new HandlebarsTemplateEngine());
         //post: process new post form
         post("/teams/new", (request, response) -> {
