@@ -28,7 +28,7 @@ public class TeamTest {
     @Test
     public void newTeaminstantiateswithDescription_3() throws Exception {
         Team testTeam = setupTeam();
-        assertEquals("Best dodgeballers this side of the Miss", testTeam.getDescription());
+        assertEquals("Best dodgeballers this side of the Miss", testTeam.getTeamDescription());
     }
     @Test
     public void all_returnsAllInstancesOfTeam_4() {
@@ -74,14 +74,14 @@ public class TeamTest {
     @Test
     public void Team_findbyId_9() throws Exception {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         assertEquals(1, testTeam.findById(testTeam.getId()).getId());
         assertEquals("Average Joe's", Team.findById(secondTeam.getId()).getTeamName());
     }
     @Test
     public void Restaurant_removeSpecificEntryById() throws Exception {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         testTeam.deleteTeam(1);
         assertEquals(1, Team.getAll().size());
         assertEquals(Team.getAll().get(0).getId(), 2);
@@ -89,12 +89,16 @@ public class TeamTest {
     @Test
     public void Team_updateSpecificTeam() throws Exception {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         secondTeam.update("Predators");
-        assertEquals("Brunch", testTeam.getTeamName());
+        assertEquals("Predators", secondTeam.getTeamName());
     }
 
     public Team setupTeam(){
         return new Team ("Cobras","Best dodgeballers this side of the Miss");
     }
+    public Team setupTeam2(){
+        return new Team ("Average Joe's","We're the most OKest");
+    }
+
 }
