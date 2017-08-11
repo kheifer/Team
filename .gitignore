@@ -40,7 +40,7 @@ Gradlew
 Gradlew.bat
 settings.gradle
 .pairs
-
+out/
 
 # IntelliJ #
 ############
