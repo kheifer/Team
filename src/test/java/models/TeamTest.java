@@ -38,7 +38,7 @@ public class TeamTest {
         assertEquals(true, Team.getAll().contains(secondTeam));
     }
     @Test
-    public void teamsetMembers_5() {
+    public void teamSetMembers_5() {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         testTeam.setMembers("Dagger");
@@ -46,6 +46,24 @@ public class TeamTest {
         secondTeam.setMembers("Blaze");
         assertEquals(2, testTeam.getMembers().size());
         assertEquals("Blaze", secondTeam.getMembers().get(0));
+    }
+    @Test
+    public void clearAllMembers_6() {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        testTeam.setMembers("Dagger");
+        testTeam.setMembers("Max");
+        secondTeam.setMembers("Blaze");
+        assertEquals(2, testTeam.getMembers().size());
+        assertEquals("Blaze", secondTeam.getMembers().get(0));
+    }
+    @Test
+    public void clearAllTeams_7() throws Exception {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        testTeam.setMembers("Dagger");
+        Team.clearAllTeams();
+        assertEquals(0, Team.getAll().size());
     }
 
 
