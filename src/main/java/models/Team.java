@@ -20,7 +20,8 @@ public class Team {
     }
 
     public static void clearAllTeams() {
-
+        incrementTeam = 0;
+        teams.clear();
     }
 
     //Getters

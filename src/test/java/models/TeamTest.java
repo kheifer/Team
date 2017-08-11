@@ -13,7 +13,7 @@ public class TeamTest {
 
     @After
     public void tearDown() throws Exception {
-
+        Team.clearAllTeams();
     }
     @Test
     public void NewTestObjectGetsCorrectlyCreated_true_1() throws Exception {
