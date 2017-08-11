@@ -10,6 +10,7 @@ public class Team {
     public Team(String teamName, String teamMember){
         this.teamName = teamName;
         this.teamMember = teamMember;
+        team.add(this);
     }
     //Getters
     public String getTeamName() {
