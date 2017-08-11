@@ -2,12 +2,9 @@
 
     {{#if editTeam}}
         <h3>Update {{editTeam.teamName}}:</h3>
-        <form action="/teams/{{editTravel.id}}/update" method="post">
+        <form action="/teams/{{editTeam.id}}/update" method="post">
             <label for="teamName">Edit this Teams's name</label>
             <input id="teamName" name="teamName" type="text" value="{{editTeam.teamName}}">
-            <label for="teamDescription">Edit this team's description</label>
-            <input id="teamDescription" name="teamDescription" type="text" value="{{editTeam.teamDescription}}">
-
     {{else}}
             <h1>Add a new Team!</h1>
 
