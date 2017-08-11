@@ -69,7 +69,7 @@ public class TeamTest {
     public void Team_createsAUniqueId_8() throws Exception {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
-        assertEquals(1, testTeam.getId());
+        assertEquals(2, secondTeam.getId());
     }
 
 
