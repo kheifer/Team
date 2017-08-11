@@ -64,9 +64,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String memberName = request.queryParams("memberName");
             Team newTeam = Team.searchByMember(memberName);
-            ArrayList<String> searchMembers = newTeam.getMembers();
             model.put("newTeam", newTeam);
-            model.put("newMembers", searchMembers);
             return new ModelAndView(model,"search.hbs");
         }, new HandlebarsTemplateEngine());
         //get: Edit entry

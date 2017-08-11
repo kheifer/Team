@@ -3,17 +3,22 @@
     {{#if editTeam}}
         <h3>Update {{editTeam.teamName}}:</h3>
         <form action="/teams/{{editTeam.id}}/update" method="post">
-            <label for="teamName">Edit this Teams's name</label>
-            <input id="teamName" name="teamName" type="text" value="{{editTeam.teamName}}">
+            <div class="form-group">
+                <label for="teamName">Edit this Teams's name</label>
+                <input id="teamName" name="teamName" class ="form-control" type="text" value="{{editTeam.teamName}}">
+            </div>
     {{else}}
             <h1>Add a new Team!</h1>
 
         <form action="/teams/new" method="post">
-            <label for="teamName">Add a new Team:</label>
-            <input id="teamName" name="teamName" type="text">
-            <label for="teamDescription">Team Description</label>
-            <input id="teamDescription" name="teamDescription" type="text">
-
+            <div class="form-group">
+                <label for="teamName">Add a new Team:</label>
+                <input id="teamName" name="teamName" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="teamDescription">Team Description</label>
+                <input id="teamDescription" name="teamDescription" class="form-control" type="text">
+            </div>
     {{/if}}
         <button type="submit" class="btn btn-success">Go!</button>
     </form>
