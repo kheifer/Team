@@ -86,7 +86,13 @@ public class TeamTest {
         assertEquals(1, Team.getAll().size());
         assertEquals(Team.getAll().get(0).getId(), 2);
     }
-
+//    @Test
+//    public void Team_updateSpecificTeam() throws Exception {
+//        Team testTeam = setupTeam();
+//        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+//        secondTeam.update("Predators", "We're basically trying to take over the world!");
+//        assertEquals("Brunch", testTeam.getTeamName());
+//    }
 
     public Team setupTeam(){
         return new Team ("Cobras","Best dodgeballers this side of the Miss");
