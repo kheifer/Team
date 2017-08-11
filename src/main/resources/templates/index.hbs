@@ -4,7 +4,7 @@
     {{#if teams}}
         <ul>
             {{#each teams}}
-                <li><a href="/teams/{{id}}">{{teamName}}</a></li>
+                <li>{{teamName}}<a href="/teams/{{id}}"><span class="glyphicon glyphicon-plus" aria-hidden="true">Add members</span></a></li>
             {{/each}}
         </ul>
     {{else}}
