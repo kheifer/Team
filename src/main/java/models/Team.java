@@ -33,7 +33,7 @@ public class Team {
         return find;
     }
     public void deleteTeam (int id) {
-
+        teams.remove(Team.findById(id));
     }
     //Getters
     public String getTeamName() {
