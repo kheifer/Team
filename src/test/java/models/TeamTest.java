@@ -71,6 +71,13 @@ public class TeamTest {
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         assertEquals(2, secondTeam.getId());
     }
+    @Test
+    public void Team_findbyId_9() throws Exception {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        assertEquals(1, testTeam.findById(testTeam.getId()).getId());
+        assertEquals("Tin Shed", Team.findById(secondTeam.getId()).getTeamName());
+    }
 
 
     public Team setupTeam(){

@@ -23,7 +23,9 @@ public class Team {
         incrementTeam = 0;
         teams.clear();
     }
-
+    public static Team findById(int id){
+        return null;
+    }
     //Getters
     public String getTeamName() {
         return teamName;
