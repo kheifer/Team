@@ -33,12 +33,12 @@ public class App {
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
         //get: show detailed information about a restaurant
-        get("/restaurants/:id", (request, response) -> {
+        get("/teams/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             int idOfTeam = Integer.parseInt(request.params("id"));
             Team newTeam = Team.findById(idOfTeam);
             model.put("newTeam", newTeam);
-            return new ModelAndView(model, "restaurant-detail.hbs");
+            return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

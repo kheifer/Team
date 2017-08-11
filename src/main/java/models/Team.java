@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Team {
     private String teamName;
-    private String description;
+    private String teamDescription;
     private static ArrayList<Team> teams = new ArrayList<Team>();
     private ArrayList<String> members;
     private int id;
@@ -12,7 +12,7 @@ public class Team {
 
     public Team(String teamName, String description){
         this.teamName = teamName;
-        this.description = description;
+        this.teamDescription = description;
         members = new ArrayList<String>();
         incrementTeam++;
         this.id = incrementTeam;
@@ -34,12 +34,15 @@ public class Team {
     public void deleteTeam (int id) {
         teams.remove(Team.findById(id));
     }
+    public void update(String name){
+        this.teamName = name;
+    }
     //Getters
     public String getTeamName() {
         return teamName;
     }
-    public String getDescription() {
-        return description;
+    public String getTeamDescription() {
+        return teamDescription;
     }
     public static ArrayList<Team> getAll() {
         return teams;
@@ -47,7 +50,6 @@ public class Team {
     public ArrayList<String> getMembers() {
         return members;
     }
-
     public int getId() {
         return id;
     }
