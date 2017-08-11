@@ -28,13 +28,13 @@ public class TeamTest {
     @Test
     public void all_returnsAllInstancesOfTeam_true() {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("TeamTwo", "Dagger");
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         assertEquals(true, Team.getAll().contains(testTeam));
         assertEquals(true, Team.getAll().contains(secondTeam));
     }
 
 
     public Team setupTeam(){
-        return new Team ("Cobras","Lazer");
+        return new Team ("Cobras","Best dodgeballers this side of the Miss");
     }
 }
