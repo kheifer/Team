@@ -2,7 +2,12 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+html, body{
+    height: 100%;
+}
+.nav{
+  backg
+}
 body {
   background-image: url("../images/background.jpg");
   background-repeat: no-repeat;
@@ -14,6 +19,16 @@ body {
 h1{
   font-family: 'Oswald', sans-serif;
 }
+.container{
+  height: 100%;
+}
+.jumbotron{
+  height: 100%;
+  opacity: 0.7;
+  flex: 0 1 auto;
+
+}
+
  .footer {
      position: fixed;
      bottom: 0;

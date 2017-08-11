@@ -19,7 +19,7 @@ This java app creates an interface that allows the maintenance of a Hackathon by
 | Add a new team to to the list |  [Team Name, Team description] |  Team added to list  |
 | Add members to team | Member name |  Member added to team  |
 | Search teams by member name | Member Name  |  Returns team and description of team |
-
+|Change team name |[new Name]|Team Name: new Name|
 
 
 ## Technologies Used
