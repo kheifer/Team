@@ -1,0 +1,23 @@
+{{#partial "content"}}
+
+    {{#if editTeam}}
+        <h3>Update {{editTeam.teamName}}:</h3>
+        <form action="/teams/{{editTravel.id}}/update" method="post">
+            <label for="title">Edit this Teams's name</label>
+            <input id="title" name="title" type="text" value="{{editTeam.teamDescription}}">
+            <label for="description">Edit this team's description</label>
+            <input id="description" name="description" type="text" value="{{editTeam.teamDescription}}">
+
+    {{else}}
+            <h1>Add a new Post!</h1>
+
+        <form action="/teams/new" method="post">
+            <label for="teamName">Add a new Team:</label>
+            <input id="teamName" name="teamName" type="text">
+            <label for="teamDescription">Team Description</label>
+            <input id="teamDescription" name="teamDescription" type="text">
+
+    {{/if}}
+        <button type="submit" class="btn btn-success">Go!</button>
+    </form>
+{{/partial}}

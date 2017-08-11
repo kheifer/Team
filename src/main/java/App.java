@@ -22,5 +22,15 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model,"add-team-form.hbs");
         }, new HandlebarsTemplateEngine());
+        //post: process new post form
+        post("/teams/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            ArrayList<Team> listOfTeams = Team.getAll();
+            String teamName = request.queryParams("teamName");
+            String teamDescription = request.queryParams("teamDescription");
+            Team newTeam = new Team(teamName,teamDescription);
+            model.put("teams", listOfTeams);
+            return new ModelAndView(model,"index.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
