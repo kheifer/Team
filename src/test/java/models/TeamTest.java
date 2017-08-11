@@ -33,14 +33,14 @@ public class TeamTest {
     @Test
     public void all_returnsAllInstancesOfTeam_4() {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         assertEquals(true, Team.getAll().contains(testTeam));
         assertEquals(true, Team.getAll().contains(secondTeam));
     }
     @Test
     public void teamAddMembers_5() {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         testTeam.setMembers("Dagger");
         testTeam.setMembers("Max");
         secondTeam.setMembers("Blaze");
@@ -50,7 +50,7 @@ public class TeamTest {
     @Test
     public void clearAllMembers_6() {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         testTeam.setMembers("Dagger");
         testTeam.setMembers("Max");
         secondTeam.setMembers("Blaze");
@@ -60,7 +60,7 @@ public class TeamTest {
     @Test
     public void clearAllTeams_7() throws Exception {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         testTeam.setMembers("Dagger");
         Team.clearAllTeams();
         assertEquals(0, Team.getAll().size());
@@ -68,7 +68,7 @@ public class TeamTest {
     @Test
     public void Team_createsAUniqueId_8() throws Exception {
         Team testTeam = setupTeam();
-        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        Team secondTeam = setupTeam2();
         assertEquals(2, secondTeam.getId());
     }
     @Test
@@ -79,7 +79,7 @@ public class TeamTest {
         assertEquals("Average Joe's", Team.findById(secondTeam.getId()).getTeamName());
     }
     @Test
-    public void Restaurant_removeSpecificEntryById() throws Exception {
+    public void Restaurant_removeSpecificEntryById_10() throws Exception {
         Team testTeam = setupTeam();
         Team secondTeam = setupTeam2();
         testTeam.deleteTeam(1);
@@ -87,12 +87,21 @@ public class TeamTest {
         assertEquals(Team.getAll().get(0).getId(), 2);
     }
     @Test
-    public void Team_updateSpecificTeam() throws Exception {
+    public void Team_updateSpecificTeam_11() throws Exception {
         Team testTeam = setupTeam();
         Team secondTeam = setupTeam2();
         secondTeam.update("Predators");
         assertEquals("Predators", secondTeam.getTeamName());
     }
+    @Test
+    public void Team_searchByTeamMate_11() throws Exception {
+        Team testTeam = setupTeam();
+        Team secondTeam = setupTeam2();
+        secondTeam.setMembers("Scott Maxwell");
+        Team searchTeam = Team.searchByMember("Scott Maxwell");
+        assertEquals("Predators", searchTeam.getTeamName());
+    }
+
 
     public Team setupTeam(){
         return new Team ("Cobras","Best dodgeballers this side of the Miss");

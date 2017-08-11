@@ -8,6 +8,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family:'Quattrocento Sans', sans-serif;
+}
+
+h1{
+  font-family: 'Oswald', sans-serif;
+  color: #333;
 }
  .footer {
      position: fixed;

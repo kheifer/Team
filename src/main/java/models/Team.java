@@ -37,6 +37,16 @@ public class Team {
     public void update(String name){
         this.teamName = name;
     }
+    public static Team searchByMember(String memberName){
+        Team finder= null;
+        for (Team team : teams){
+            for(String member:team.members)
+            if(member == memberName){
+                finder = team;
+            }
+        }
+        return finder;
+    }
     //Getters
     public String getTeamName() {
         return teamName;

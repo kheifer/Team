@@ -43,7 +43,6 @@ public class App {
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
         //Post: add new members
-        //Post: add new members
         post("/teams/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String newTeamMate = request.queryParams("newTeamMate");
