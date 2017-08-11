@@ -16,7 +16,7 @@ public class TeamTest {
 
     }
     @Test
-    public void NewTestObjectGetsCorrectlyCreated_true_2() throws Exception {
+    public void NewTestObjectGetsCorrectlyCreated_true_1() throws Exception {
         Team testTeam = setupTeam();
         assertEquals(true, testTeam instanceof Team);
     }
@@ -26,14 +26,19 @@ public class TeamTest {
         assertEquals("Cobras", testTeam.getTeamName());
     }
     @Test
-    public void all_returnsAllInstancesOfTeam_3() {
+    public void newTeaminstantiateswithDescription_3() throws Exception {
+        Team testTeam = setupTeam();
+        assertEquals("Best dodgeballers this side of the Miss", testTeam.getDescription());
+    }
+    @Test
+    public void all_returnsAllInstancesOfTeam_4() {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         assertEquals(true, Team.getAll().contains(testTeam));
         assertEquals(true, Team.getAll().contains(secondTeam));
     }
     @Test
-    public void teamsetMembers_4() {
+    public void teamsetMembers_5() {
         Team testTeam = setupTeam();
         Team secondTeam = new Team("Average Joe's", "We're the most OKest");
         testTeam.setMembers("Dagger");

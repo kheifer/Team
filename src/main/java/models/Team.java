@@ -14,6 +14,7 @@ public class Team {
         members = new ArrayList<String>();
         team.add(this);
     }
+
     //Getters
     public String getTeamName() {
         return teamName;
@@ -28,6 +29,7 @@ public class Team {
         return members;
     }
 
+    //Setters
     public void setMembers(String members) {
         this.members.add(members);
     }
