@@ -78,6 +78,14 @@ public class TeamTest {
         assertEquals(1, testTeam.findById(testTeam.getId()).getId());
         assertEquals("Average Joe's", Team.findById(secondTeam.getId()).getTeamName());
     }
+    @Test
+    public void Restaurant_removeSpecificEntryById() throws Exception {
+        Team testTeam = setupTeam();
+        Team secondTeam = new Team("Average Joe's", "We're the most OKest");
+        testTeam.deleteTeam(1);
+        assertEquals(1, Team.getAll().size());
+        assertEquals(Team.getAll().get(0).getId(), 2);
+    }
 
 
     public Team setupTeam(){

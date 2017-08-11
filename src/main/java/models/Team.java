@@ -32,6 +32,9 @@ public class Team {
         }
         return find;
     }
+    public void deleteTeam (int id) {
+
+    }
     //Getters
     public String getTeamName() {
         return teamName;
