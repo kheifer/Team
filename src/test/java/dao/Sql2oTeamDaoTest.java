@@ -86,10 +86,19 @@ public class Sql2oTeamDaoTest {
         teamDao.deleteAllTeams();
         assertEquals(0,teamDao.getAll().size());
     }
-//
-//    @Test
-//    public void deleteById() throws Exception {
-//    }
+
+    @Test
+    public void TeamdeleteById() throws Exception {
+        Team team = setNewTeam();
+        Team team1 = setNewTeam2();
+        Team team2 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        teamDao.add(team2);
+        int delete = team.getId();
+        teamDao.deleteById(delete);
+        assertEquals(2, teamDao.getAll().size());
+    }
 
     public Team setNewTeam(){
         return new Team("Warriors","we wear cool red jackets");
