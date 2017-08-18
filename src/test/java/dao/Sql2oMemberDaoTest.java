@@ -56,10 +56,19 @@ public class Sql2oMemberDaoTest {
         assertEquals(3, memberDao.getAll().size());
     }
 
-//    @Test
-//    public void update() throws Exception {
-//    }
-//
+    @Test
+    public void memberUpdateMemberInfoById() throws Exception {
+        Member newMember = newMemberInitiator();
+        Member newMember1 = newMemberInitiator();
+        Member member2 = newMemberInitiator2();
+        memberDao.add(member2);
+        memberDao.add(newMember);
+        memberDao.add(newMember1);
+        int searchId = newMember.getId();
+        memberDao.update("Scott Mescudi","Washington", "Rigger", 35, searchId, 1);
+        assertNotEquals(newMember.getAge(), memberDao.findById(searchId).getAge());
+    }
+
 //    @Test
 //    public void deleteByID() throws Exception {
 //    }
