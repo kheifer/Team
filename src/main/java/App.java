@@ -176,7 +176,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //post: run a find function on the input
-        post("/teams/:id/delete", (request, response) -> {
+        post("/search", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String membs = request.queryParams("memberName");
             List<Member> search = memberDao.getAllMembersByMemberName("membs");
