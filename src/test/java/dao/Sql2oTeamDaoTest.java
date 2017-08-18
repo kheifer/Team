@@ -52,7 +52,14 @@ public class Sql2oTeamDaoTest {
 ////
     @Test
     public void teamFindById() throws Exception {
-
+        Team team = setNewTeam();
+        Team team1 = setNewTeam2();
+        Team team2 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        teamDao.add(team2);
+        Team find = teamDao.findById(team.getId());
+        assertEquals(team.getTeamName(), find.getTeamName());
     }
 //
 //    @Test
