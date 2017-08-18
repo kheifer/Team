@@ -74,10 +74,11 @@ public class Sql2oTeamDaoTest {
         teamDao.update("West","West of East", find);
         assertNotEquals(team.getTeamName(),teamDao.findById(find).getTeamName());
     }
-//
-//    @Test
-//    public void deleteAllTeams() throws Exception {
-//    }
+
+    @Test
+    public void deleteAllTeams() throws Exception {
+
+    }
 //
 //    @Test
 //    public void deleteById() throws Exception {
