@@ -47,11 +47,13 @@ public class Sql2oTeamDaoTest {
 
 //    @Test
 //    public void getAllMembersByTeamId() throws Exception {
-//    }
 //
-//    @Test
-//    public void findById() throws Exception {
 //    }
+////
+    @Test
+    public void teamFindById() throws Exception {
+
+    }
 //
 //    @Test
 //    public void update() throws Exception {
@@ -67,5 +69,8 @@ public class Sql2oTeamDaoTest {
 
     public Team setNewTeam(){
         return new Team("Warriors","we wear cool red jackets");
+    }
+    public Team setNewTeam2(){
+        return new Team("NorfNorf","we wear cool blue jackets");
     }
 }
