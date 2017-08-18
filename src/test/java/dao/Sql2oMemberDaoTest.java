@@ -20,7 +20,6 @@ public class Sql2oMemberDaoTest {
         memberDao = new Sql2oMemberDao(sql2o);
 
         con = sql2o.open();
-
     }
 
     @After
@@ -94,8 +93,11 @@ public class Sql2oMemberDaoTest {
         memberDao.add(newMember1);
         memberDao.add(member3);
         memberDao.add(newMember2);
+        int size =  memberDao.getAll().size();
         memberDao.deleteAllMembers();
         assertEquals(0, memberDao.getAll().size());
+        assertTrue(size > 0 && size > memberDao.getAll().size());
+
     }
 
     public Member newMemberInitiator(){
