@@ -41,7 +41,8 @@ public class Sql2oTeamDaoTest {
         Team team = setNewTeam();
         Team team1 = setNewTeam();
         teamDao.add(team);
-        teamDao.ad
+        teamDao.add(team1);
+        assertEquals(2, teamDao.getAll().size());
     }
 
 //    @Test
