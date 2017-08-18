@@ -115,6 +115,22 @@ public class Sql2oTeamDaoTest {
         assertEquals(2, teamDao.getAll().size());
     }
 
+    @Test
+    public void findByMemberName() throws Exception {
+        Member member2 = new Member("Scott Mescudi", "Norfolk, CT", "Carpenter", 36, 2);
+        memberDao.add(member2);
+        Team team = setNewTeam();
+        Team team1 = setNewTeam2();
+        Team team2 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        teamDao.add(team2);
+        Team search = teamDao.findByMemberName(member2.getName());
+        assertEquals(team1.getTeamName(),search.getTeamName());
+
+
+    }
+
     public Team setNewTeam(){
         return new Team("Warriors","we wear cool red jackets");
     }

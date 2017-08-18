@@ -1,19 +1,21 @@
 {{#partial "content"}}
     <h3>{{thisTeam.teamName}}</h3>
-
+    <p>{{thisTeam.teamDescription}}</p>>
     {{#if members}}
         <ul>
-            {{#each members}}
-                <div class="well">
-                    <li><a href="{{thisNeighborhood.id}}/members/{{id}}">{{name}}:</a></li>
-                </div>
-            {{/each}}
-            <li role="presentation"><a href="/members/new/1">Add a new team mate!</a></li>
+            <div class="well">
+                {{#each members}}
+                    <li><a href="/teams/{{memberId}}/members/{{id}}">{{name}}:</a></li>
+                {{/each}}
+            </div>
         </ul>
+        <a href="/members/new" class="btn btn-success">Add a new team mate!</a>
     {{else}}
-        <li role="presentation"><a href="/members/new">Add a new team mate!</a></li>
-
+        <a href="/members/new" class="btn btn-success">Add a new team mate!</a>
     {{/if}}
+
+    <a class="btn btn-warning" href="/teams/{{thisTeam.id}}/delete">Delete Team</a>
+
 {{/partial}}
 
 {{> layout.hbs}}

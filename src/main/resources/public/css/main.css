@@ -25,6 +25,13 @@ body {
     background-position: 1024px 0;
   }
 }
+@media (min-width: 768px) {
+.my-2{
+  float:right;
+  padding: 5px 5px;
+
+ }
+}
 
 @keyframes scrollingBackground {
   from {

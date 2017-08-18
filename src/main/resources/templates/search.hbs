@@ -10,10 +10,8 @@
         </div>
     </form>
 
-    {{#if members}}
-        {{#each members}}
-            <p><a href="{{memberId}}/members/{{id}}">{{name}}"<span class="glyphicon glyphicon-pencil" aria-hidden="true"></a></p>
-        {{/each}}
+    {{#if team}}
+            <p><a href="/teams/{{team.id}}">{{team.teamName}}<span class="glyphicon glyphicon-plus" aria-hidden="true"></a></p>
     {{else}}
         <p>No Teams to display!</p>
     {{/if}}

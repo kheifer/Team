@@ -47,6 +47,18 @@ public class Sql2oTeamDao implements TeamDao {
     }
 
     @Override
+    public Team findByMemberName(String memberName) {
+        try(Connection con = sql2o.open()){
+            int id=(Integer) con.createQuery("SELECT memberId FROM members WHERE name = :name")
+                    .addParameter("name", memberName)
+                    .executeAndFetchFirst(Integer.class);
+            return con.createQuery("SELECT * FROM team WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Team.class);
+        }
+    }
+
+    @Override
     public Team findById(int id) {
         String sql = "SELECT * FROM team WHERE id = :id"; //creates a new query search command to select a team by Id
         try(Connection con = sql2o.open()){//opens a connection

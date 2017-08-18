@@ -104,11 +104,14 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: show individual member info
-        get("/members/:id", (request, response) -> {
+        get("/teams/:memberId/members/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamMember = Integer.parseInt(request.params("id"));
             Member member = memberDao.findById(idOfTeamMember);
+            int idOfTeam =  Integer.parseInt(request.params("memberId"));
+            Team team = teamDao.findById(idOfTeam);
             List<Team> teamList = teamDao.getAll();
+            model.put("team",team);
             model.put("member", member);
             model.put("teams", teamList);
             return new ModelAndView(model,"member-detail.hbs");
@@ -178,9 +181,13 @@ public class App {
         //post: run a find function on the input
         post("/search", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            String membs = request.queryParams("memberName");
-            List<Member> search = memberDao.getAllMembersByMemberName("membs");
-            model.put("members", search);
+            String memberName = request.queryParams("memberName");
+            if (  teamDao.findByMemberName(memberName) != null ) {
+                Team search = teamDao.findByMemberName(memberName);
+                model.put("team", search);
+            } else if( teamDao.findByMemberName(memberName) == null ){
+                return null;
+            }
             List<Team> teamList = teamDao.getAll();
             model.put("teams", teamList);
             return new ModelAndView(model, "search.hbs");

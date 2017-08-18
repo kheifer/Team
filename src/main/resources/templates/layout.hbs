@@ -13,29 +13,31 @@
 
     </head>
     <body>
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="/">Home</a></li>
-        <li role="presentation"><a href="/">See All Teams</a></li>
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                TEAMS <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                {{#if teams}}
-                    {{#each teams}}
-                        <li><a href="/teams/{{id}}">{{teamName}}</a></li>
-                    {{/each}}
-                    <li><a href="/teams/new">Add a Team</a></li>
+        <ul class=" nav nav-tabs mr-auto">
+                        <li class="nav-item" role="presentation"><a href="/">Home</a></li>
+                        <li class="nav-item"role="presentation"><a href="/">See All Teams</a></li>
+                        <li class="nav-item" role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                TEAMS <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {{#if teams}}
+                                    {{#each teams}}
+                                        <li><a href="/teams/{{id}}">{{teamName}}</a></li>
+                                    {{/each}}
+                                    <li><a href="/teams/new">Add a Team</a></li>
 
-                {{else}}
-                    <li><a href="/teams/new">Add a Team</a></li>
-                {{/if}}
-            </ul>
-        </li>
-        <li role="presentation"><a href="/members/new">Add a new team mate!</a></li>
+                                {{else}}
+                                    <li><a href="/teams/new">Add a Team</a></li>
+                                {{/if}}
+                            </ul>
+                        <li role="presentation"><a href="/members/new">Add a new team mate!</a></li>
+                        <form class="form-inline my-2 my-lg-0" action="/search" method="post" >
+                            <input id="memberName" name="memberName" class="form-control mr-sm-2" type="text" placeholder="Search">
+                            <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
+                        </form>
+                    </ul>
 
-        <!--<li role="presentation"><a href="/search">Find Team by team mate!</a></li>-->
-    </ul>
 {{/block}}
         <div class="container">
             <div class="page-header">
@@ -50,13 +52,13 @@
              </div>
         </div>
 {{#block "footer"}}
-    <footer class="footer">
-        <div class="col-md-12">
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
+        <footer class="footer">
+            <div class="col-md-12">
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="/js/main.js"></script>
     </body>
     </html>
 

@@ -113,6 +113,8 @@ public class Sql2oMemberDaoTest {
         memberDao.add(newMember2);
         String memberName = member2.getName();
         assertEquals(1, memberDao.getAllMembersByMemberName(memberName).size());
+        assertEquals("Scott Mescudi", memberDao.getAllMembersByMemberName(memberName).get(0).getName());
+
     }
 
     public Member newMemberInitiator(){

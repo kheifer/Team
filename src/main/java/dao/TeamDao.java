@@ -13,6 +13,8 @@ public interface TeamDao {
 
     List<Member> getAllMembersByTeamId(int id);
 
+    Team findByMemberName(String memberName);
+
     Team findById(int id);
 
     void update(String name, String description, int id);
