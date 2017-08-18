@@ -1,6 +1,6 @@
 {{#partial "content"}}
-    <h3>{{thisTeam.teamName}}</h3>
-    <p>{{thisTeam.teamDescription}}</p>>
+    <h3>{{thisTeam.teamName}}<a href="/teams/{{team.id}}/edit">{{team.teamName}}<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
+    <blockquote><p>{{thisTeam.teamDescription}}</p></blockquote>
     {{#if members}}
         <ul>
             <div class="well">
