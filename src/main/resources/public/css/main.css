@@ -9,11 +9,30 @@ html, body{
   background-color:#ece3dc;
 }
 body {
-  background-image: url("../images/background4.jpg");
-  background-repeat: no-repeat;
+  background-image: url("../images/background.png");
+  /*background-repeat: no-repeat;*/
   background-size: cover;
   background-attachment: fixed;
   font-family:'Quattrocento Sans', sans-serif;
+  -webkit-animation: scrollingBackground 22s linear infinite;
+          animation: scrollingBackground 22s linear infinite;
+}
+@-webkit-keyframes scrollingBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1024px 0;
+  }
+}
+
+@keyframes scrollingBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1024px 0;
+  }
 }
 
 h1{
