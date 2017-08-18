@@ -120,7 +120,7 @@ public class App {
             String homeTown = request.queryParams("homeTown");
             String occupation = request.queryParams("occupation");
             Integer age= Integer.parseInt(request.queryParams("age"));
-            int memberId = Integer.parseInt(request.queryParams("age"));
+            int memberId = Integer.parseInt(request.queryParams("memberId"));
             int id = Integer.parseInt(request.params("id"));
             memberDao.update(name, homeTown,occupation,age,id, memberId);
             List<Team> teamList = teamDao.getAll();
