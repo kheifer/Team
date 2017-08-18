@@ -7,6 +7,10 @@
                 <label for="teamName">Edit this Teams's name</label>
                 <input id="teamName" name="teamName" class ="form-control" type="text" value="{{editTeam.teamName}}" required>
             </div>
+            <div class="form-group">
+                <label for="teamDescription">Team Description</label>
+                <input id="teamDescription" name="teamDescription" class="form-control" type="text" value="{{editTeam.teamDescription}}"required>
+            </div>
     {{else}}
             <h1>Add a new Team!</h1>
 
@@ -20,7 +24,7 @@
                 <input id="teamDescription" name="teamDescription" class="form-control" type="text" required>
             </div>
     {{/if}}
-        <button type="submit" class="btn btn-success">Go!</button>
+        <button type="submit" class="btn btn-success">Submit!</button>
     </form>
 {{/partial}}
 
