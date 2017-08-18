@@ -82,9 +82,21 @@ public class Sql2oMemberDaoTest {
         assertEquals(2, memberDao.getAll().size());
     }
 
-//    @Test
-//    public void deleteAllMembers() throws Exception {
-//    }
+    @Test
+    public void memberDaoDeleteAllMembers() throws Exception {
+        Member newMember = newMemberInitiator();
+        Member newMember1 = newMemberInitiator();
+        Member member2 = newMemberInitiator2();
+        Member member3 = newMemberInitiator();
+        Member newMember2 = newMemberInitiator2();
+        memberDao.add(member2);
+        memberDao.add(newMember);
+        memberDao.add(newMember1);
+        memberDao.add(member3);
+        memberDao.add(newMember2);
+        memberDao.deleteAllMembers();
+        assertEquals(0, memberDao.getAll().size());
+    }
 
     public Member newMemberInitiator(){
         return new Member("Max Maddock", "Portland, OR", "Software Developer", 29,1);
