@@ -62,7 +62,7 @@ public class Sql2oMemberDao implements MemberDao {
         }
     }
     @Override
-    public void deleteByID(int id) {
+    public void deleteById(int id) {
 
     }
 

@@ -69,10 +69,19 @@ public class Sql2oMemberDaoTest {
         assertNotEquals(newMember.getAge(), memberDao.findById(searchId).getAge());
     }
 
-//    @Test
-//    public void deleteByID() throws Exception {
-//    }
-//
+    @Test
+    public void memberDaodeleteMemberByID() throws Exception {
+        Member newMember = newMemberInitiator();
+        Member newMember1 = newMemberInitiator();
+        Member member2 = newMemberInitiator2();
+        memberDao.add(member2);
+        memberDao.add(newMember);
+        memberDao.add(newMember1);
+        int delete = newMember1.getId();
+        memberDao.deleteById(delete);
+        assertEquals(2, memberDao.getAll().size());
+    }
+
 //    @Test
 //    public void deleteAllMembers() throws Exception {
 //    }

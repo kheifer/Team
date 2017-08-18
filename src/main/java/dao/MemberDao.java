@@ -14,7 +14,7 @@ public interface MemberDao {
 
     void update(String name, String homeTown, String occupation, int age, int id, int memberId);
 
-    void deleteByID(int id);
+    void deleteById(int id);
 
     void deleteAllMembers();
 
