@@ -59,7 +59,12 @@ public class Sql2oTeamDaoTest {
         memberDao.add(member1);
         assertEquals(2, teamDao.getAllMembersByTeamId(id).size());
     }
-//
+
+    @Test
+    public void findMyName() throws Exception{
+
+    }
+
     @Test
     public void teamFindById() throws Exception {
         Team team = setNewTeam();

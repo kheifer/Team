@@ -1,11 +1,18 @@
 {{#partial "content"}}
     <h3>{{thisTeam.teamName}}</h3>
+
     {{#if members}}
-        {{#each members}}
-            <div class="well">
-                <h3><a href="{{thisNeighborhood.id}}/members/{{id}}">{{name}}:</a></h3>
-            </div>
-        {{/each}}
+        <ul>
+            {{#each members}}
+                <div class="well">
+                    <li><a href="{{thisNeighborhood.id}}/members/{{id}}">{{name}}:</a></li>
+                </div>
+            {{/each}}
+            <li role="presentation"><a href="/members/new/1">Add a new team mate!</a></li>
+        </ul>
+    {{else}}
+        <li role="presentation"><a href="/members/new">Add a new team mate!</a></li>
+
     {{/if}}
 {{/partial}}
 

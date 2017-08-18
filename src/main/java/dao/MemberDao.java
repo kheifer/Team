@@ -12,6 +12,9 @@ public interface MemberDao {
 
     List<Member> getAll();
 
+    List<Member> getAllMembersByMemberName(String input);
+
+
     void update(String name, String homeTown, String occupation, int age, int id, int memberId);
 
     void deleteById(int id);

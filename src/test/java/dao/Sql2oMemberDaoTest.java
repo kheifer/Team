@@ -59,7 +59,7 @@ public class Sql2oMemberDaoTest {
     public void memberUpdateMemberInfoById() throws Exception {
         Member newMember = newMemberInitiator();
         Member newMember1 = newMemberInitiator();
-        Member member2 = newMemberInitiator2();
+        Member member2= newMemberInitiator2();
         memberDao.add(member2);
         memberDao.add(newMember);
         memberDao.add(newMember1);
@@ -97,7 +97,22 @@ public class Sql2oMemberDaoTest {
         memberDao.deleteAllMembers();
         assertEquals(0, memberDao.getAll().size());
         assertTrue(size > 0 && size > memberDao.getAll().size());
+    }
 
+    @Test
+    public void memberGetAllMembersByMemberName() throws Exception{
+        Member newMember = newMemberInitiator();
+        Member newMember1 = newMemberInitiator();
+        Member member2 = new Member("Scott Mescudi","Norfolk, CT","Carpenter", 36, 2);
+        Member member3 = newMemberInitiator();
+        Member newMember2 = newMemberInitiator2();
+        memberDao.add(member2);
+        memberDao.add(newMember);
+        memberDao.add(newMember1);
+        memberDao.add(member3);
+        memberDao.add(newMember2);
+        String memberName = member2.getName();
+        assertEquals(1, memberDao.getAllMembersByMemberName(memberName).size());
     }
 
     public Member newMemberInitiator(){

@@ -22,7 +22,7 @@
             </a>
             <ul class="dropdown-menu">
                 {{#if teams}}
-                    {{#each team}}
+                    {{#each teams}}
                         <li><a href="/teams/{{id}}">{{teamName}}</a></li>
                     {{/each}}
                     <li><a href="/teams/new">Add a Team</a></li>
@@ -32,6 +32,8 @@
                 {{/if}}
             </ul>
         </li>
+        <li role="presentation"><a href="/members/new">Add a new team mate!</a></li>
+
         <li role="presentation"><a href="/search">Search by teammate!</a></li>
     </ul>
 {{/block}}

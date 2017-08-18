@@ -25,9 +25,7 @@ public class App {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Team> teamList = teamDao.getAll();
-            List<Member> memberList = memberDao.getAll();
             model.put("teams", teamList);
-            model.put("members", memberList);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 //        //get: show form to enter new team
@@ -53,11 +51,11 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfTeam = Integer.parseInt(request.params("id"));
             List<Member> membersByTeam = teamDao.getAllMembersByTeamId(idOfTeam);
+            model.put("members", membersByTeam);
             List<Team> teamList = teamDao.getAll();
+            model.put("teams", teamList);
             Team thisTeam = teamDao.findById(idOfTeam);
             model.put("thisTeam",thisTeam);
-            model.put("members", membersByTeam);
-            model.put("teams", teamList);
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
         //get:edit team info
@@ -83,7 +81,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: show for, to enter new teammate
-        get("/teammate/new",(request, response) -> {
+        get("/members/new",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Team> teamList = teamDao.getAll();
             model.put("teams", teamList);
@@ -91,18 +89,29 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //post: process new teammate
-        post("/teammate/new", (request, response) -> {
+        post("/members/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
             String homeTown = request.queryParams("homeTown");
             String occupation = request.queryParams("occupation");
             Integer age= Integer.parseInt(request.queryParams("age"));
-            int memberId = Integer.parseInt(request.queryParams("age"));
+            int memberId = Integer.parseInt(request.queryParams("memberId"));
             Member member = new Member(name, homeTown,occupation,age,memberId);
             memberDao.add(member);
             List<Team> teamList = teamDao.getAll();
             model.put("teams", teamList);
             return new ModelAndView(model,"index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //get: show individual member info
+        get("/members/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamMember = Integer.parseInt(request.params("id"));
+            Member member = memberDao.findById(idOfTeamMember);
+            List<Team> teamList = teamDao.getAll();
+            model.put("member", member);
+            model.put("teams", teamList);
+            return new ModelAndView(model,"member-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get a form to update  a member's info
@@ -158,18 +167,23 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        //Get: Search by teammate form
-//        get("/search",(request, response) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            return new ModelAndView(model,"search.hbs");
-//        }, new HandlebarsTemplateEngine());
-//        //Post: Show team by search name
-//        post("/search", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
-//            String memberName = request.queryParams("memberName");
-//            Team newTeam = Team.searchByMember(memberName);
-//            model.put("newTeam", newTeam);
-//            return new ModelAndView(model,"search.hbs");
-//        }, new HandlebarsTemplateEngine());
+        //get: prompt to search for team by username
+        get("/search",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Team> teamList = teamDao.getAll();
+            model.put("teams", teamList);
+            return new ModelAndView(model,"search.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //post: run a find function on the input
+        post("/teams/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String membs = request.queryParams("memberName");
+            List<Member> search = memberDao.getAllMembersByMemberName("membs");
+            model.put("members", search);
+            List<Team> teamList = teamDao.getAll();
+            model.put("teams", teamList);
+            return new ModelAndView(model, "search.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
