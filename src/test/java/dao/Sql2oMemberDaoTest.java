@@ -45,10 +45,17 @@ public class Sql2oMemberDaoTest {
         assertEquals(newMember.getAge(), memberDao.findById(finder).getAge());
     }
 
-//    @Test
-//    public void getAll() throws Exception {
-//    }
-//
+    @Test
+    public void getAllMembersForAllTeams() throws Exception {
+        Member member = newMemberInitiator();
+        Member member1 = newMemberInitiator();
+        Member member2 = newMemberInitiator2();
+        memberDao.add(member);
+        memberDao.add(member1);
+        memberDao.add(member2);
+        assertEquals(3, memberDao.getAll().size());
+    }
+
 //    @Test
 //    public void update() throws Exception {
 //    }
@@ -63,5 +70,8 @@ public class Sql2oMemberDaoTest {
 
     public Member newMemberInitiator(){
         return new Member("Max Maddock", "Portland, OR", "Software Developer", 29,1);
+    }
+    public Member newMemberInitiator2(){
+        return new Member("Maxamillion Ulanoff", "New York, NY", "Project Manager", 32,1);
     }
 }
