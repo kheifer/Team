@@ -5,49 +5,13 @@ import java.util.ArrayList;
 public class Team {
     private String teamName;
     private String teamDescription;
-    private static ArrayList<Team> teams = new ArrayList<Team>();
-    private ArrayList<String> members;
     private int id;
-    private static int incrementTeam = 0;
 
     public Team(String teamName, String description){
         this.teamName = teamName;
         this.teamDescription = description;
-        members = new ArrayList<String>();
-        incrementTeam++;
-        this.id = incrementTeam;
-        teams.add(this);
     }
-    public static void clearAllTeams() {
-        incrementTeam = 0;
-        teams.clear();
-    }
-    public static Team findById(int id){
-        Team find= null;
-        for (Team team : teams){
-            if(team.getId() == id){
-                find = team;
-            }
-        }
-        return find;
-    }
-    public void deleteTeam (int id) {
-        teams.remove(Team.findById(id));
-    }
-    public void update(String name){
-        this.teamName = name;
-    }
-    public static Team searchByMember(String memberName){
-        Team finder= null;
-        for (Team team : teams) {
-            for (String member : team.members) {
-                if (member.equals(memberName)) {
-                    finder = team;
-                }
-            }
-        }
-        return finder;
-    }
+
     //Getters
     public String getTeamName() {
         return teamName;
@@ -55,18 +19,37 @@ public class Team {
     public String getTeamDescription() {
         return teamDescription;
     }
-    public static ArrayList<Team> getAll() {
-        return teams;
-    }
-    public ArrayList<String> getMembers() {
-        return members;
-    }
     public int getId() {
         return id;
     }
 
     //Setters
-    public void setMembers(String members) {
-        this.members.add(members);
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+    public void setTeamDescription(String teamDescription) {
+        this.teamDescription = teamDescription;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    //equals and hashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (!teamName.equals(team.teamName)) return false;
+        return teamDescription.equals(team.teamDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = teamName.hashCode();
+        result = 31 * result + teamDescription.hashCode();
+        return result;
     }
 }
