@@ -35,10 +35,16 @@ public class Sql2oMemberDaoTest {
         assertEquals(1, newMember.getId());
     }
 
-//    @Test
-//    public void findById() throws Exception {
-//    }
-//
+    @Test
+    public void memberFindMemberById() throws Exception {
+        Member newMember = newMemberInitiator();
+        Member newMember1 = newMemberInitiator();
+        memberDao.add(newMember);
+        memberDao.add(newMember1);
+        int finder = newMember.getId();
+        assertEquals(newMember.getAge(), memberDao.findById(finder).getAge());
+    }
+
 //    @Test
 //    public void getAll() throws Exception {
 //    }
