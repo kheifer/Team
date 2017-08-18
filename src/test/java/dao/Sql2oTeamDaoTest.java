@@ -76,8 +76,15 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void deleteAllTeams() throws Exception {
-
+    public void teamDaoDeletesAllTeams() throws Exception {
+        Team team = setNewTeam();
+        Team team1 = setNewTeam2();
+        Team team2 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        teamDao.add(team2);
+        teamDao.deleteAllTeams();
+        assertEquals(0,teamDao.getAll().size());
     }
 //
 //    @Test
