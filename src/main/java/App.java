@@ -49,16 +49,16 @@ public class App {
             model.put("teams", teamList);
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
-        //get: show detailed information about a team
-//        get("/teams/:id", (request, response) -> {
-//            Map<String, Object> model = new HashMap<String, Object>();
-//            int idOfTeam = Integer.parseInt(request.params("id"));
-//            List<Member>
-//            ArrayList<String> newMembers = newTeam.getMembers();
-//            model.put("newTeam", newTeam);
-//            model.put("newMembers", newMembers);
-//            return new ModelAndView(model, "team-detail.hbs");
-//        }, new HandlebarsTemplateEngine());
+       // get: show detailed information about a team
+        get("/teams/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int idOfTeam = Integer.parseInt(request.params("id"));
+            List<Member> membersByTeam = teamDao.getAllMembersByTeamId(idOfTeam);
+            List<Team> teamList = teamDao.getAll();
+            model.put("members", membersByTeam);
+            model.put("teams", teamList);
+            return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
 //        //Post: add new members
 //        post("/teams/:id", (request, response) -> {
 //            Map<String, Object> model = new HashMap<String, Object>();
