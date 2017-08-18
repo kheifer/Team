@@ -40,8 +40,10 @@ public class Sql2oMemberDao implements MemberDao {
 
     @Override
     public List<Member> getAll() {
-        return null;
-    }
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM members")
+                    .executeAndFetch(Member.class);
+        }    }
 
     @Override
     public void update(String name, String homeTown, String occupation, int age, int id, int memberId) {
