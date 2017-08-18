@@ -49,7 +49,7 @@ public class App {
             model.put("teams", teamList);
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
-        //get: show detailed information about a restaurant
+        //get: show detailed information about a team
 //        get("/teams/:id", (request, response) -> {
 //            Map<String, Object> model = new HashMap<String, Object>();
 //            int idOfTeam = Integer.parseInt(request.params("id"));

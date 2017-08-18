@@ -1,5 +1,6 @@
 package dao;
 
+import models.Member;
 import models.Team;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +20,7 @@ public class Sql2oTeamDaoTest {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString,"","");
         teamDao =  new Sql2oTeamDao(sql2o);
-//        memberDao = new Sql2oMemberDao(sql2o);
+       memberDao = new Sql2oMemberDao(sql2o);
 
         con = sql2o.open();
     }
@@ -45,11 +46,20 @@ public class Sql2oTeamDaoTest {
         assertEquals(2, teamDao.getAll().size());
     }
 
-//    @Test
-//    public void getAllMembersByTeamId() throws Exception {
+    @Test
+    public void teamGetAllMembersByTeamId() throws Exception {
+        Team team = setNewTeam();
+        Team team1 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        int id = team.getId();
+        Member member = new Member("Maxamillion Ulanoff", "New York, NY", "Project Manager", 32,team.getId());
+        Member member1 = new Member("Max Maddock", "Portland, OR", "Software Developer", 29,team.getId());
+        memberDao.add(member);
+        memberDao.add(member1);
+        assertEquals(2, teamDao.getAllMembersByTeamId(id).size());
+    }
 //
-//    }
-////
     @Test
     public void teamFindById() throws Exception {
         Team team = setNewTeam();
