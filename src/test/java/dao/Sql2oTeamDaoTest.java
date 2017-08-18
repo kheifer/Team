@@ -61,10 +61,19 @@ public class Sql2oTeamDaoTest {
         Team find = teamDao.findById(team.getId());
         assertEquals(team.getTeamName(), find.getTeamName());
     }
-//
-//    @Test
-//    public void update() throws Exception {
-//    }
+
+    @Test
+    public void teamUpdateAnEntry() throws Exception {
+        Team team = setNewTeam();
+        Team team1 = setNewTeam2();
+        Team team2 = setNewTeam();
+        teamDao.add(team);
+        teamDao.add(team1);
+        teamDao.add(team2);
+        int find = team.getId();
+        teamDao.update("West","West of East", find);
+        assertNotEquals(team.getTeamName(),teamDao.findById(find).getTeamName());
+    }
 //
 //    @Test
 //    public void deleteAllTeams() throws Exception {
