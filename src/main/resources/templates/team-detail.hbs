@@ -1,30 +1,12 @@
 {{#partial "content"}}
-    {{#if newTeam}}
-        <p>{{newTeam.teamName}}  <a href="/teams/{{newTeam.id}}/update"><span class="glyphicon glyphicon-pencil" aria-hidden="true">edit Team Name</span></a></p>
-        <ul>
-            <li>Team Description:<br> {{newTeam.teamDescription}}</li><br><br>
-            <li>Team members:<li>
-            <ul>
-        {{#if newMembers}}
-            {{#each newMembers}}
-                <li>{{this}}</li>
-            {{/each}}
-            {{else}}
-            <p>There are no member's currently listed.</p>
-        {{/if}}
-            </ul>
-        </ul>
-    {{else}}
-        <p>No Teams to display!</p>
+    <h3>{{thisTeam.teamName}}</h3>
+    {{#if members}}
+        {{#each members}}
+            <div class="well">
+                <h3><a href="{{thisNeighborhood.id}}/members/{{id}}">{{name}}:</a></h3>
+            </div>
+        {{/each}}
     {{/if}}
-
-    <form action="/teams/{{newTeam.id}}" method="post">
-        <div class="form-group">
-            <label for="newTeamMate">Add a new teammate:</label>
-            <input id="newTeamMate" name="newTeamMate" class="form-control" type="text">
-            <button type="submit" class="btn btn-success">Add a new team member</button>
-        </div>
-    </form>
 {{/partial}}
 
 {{> layout.hbs}}

@@ -54,6 +54,8 @@ public class App {
             int idOfTeam = Integer.parseInt(request.params("id"));
             List<Member> membersByTeam = teamDao.getAllMembersByTeamId(idOfTeam);
             List<Team> teamList = teamDao.getAll();
+            Team thisTeam = teamDao.findById(idOfTeam);
+            model.put("thisTeam",thisTeam);
             model.put("members", membersByTeam);
             model.put("teams", teamList);
             return new ModelAndView(model, "team-detail.hbs");
