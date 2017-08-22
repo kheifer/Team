@@ -3,10 +3,10 @@
 
         <div class="well">
             <h1>Edit Member details:</h1>
-            <form action="/teams/{{editMember.memberId}}/members/{{editMember.id}}/edit" method="post">
+            <form action="/teams/{{editMember.teamId}}/members/{{editMember.id}}/edit" method="post">
                 <div class="form-group">
                     <label for="teams">Teams:</label>
-                    <select id="teams" name="memberId" required>
+                    <select id="teams" name="teamId" required>
                         {{#each teams}}
                             <option value="{{this.id}}">{{this.teamName}}</option>
                         {{/each}}
@@ -26,7 +26,7 @@
                 </div>
                 <div class ="form-group">
                     <label for="age">Age: </label>
-                    <input id="age" name="age" type="text" class="form-control" value="{{editMember.age}}" required>
+                    <input id="age" name="age" type="number" class="form-control" value="{{editMember.age}}" required>
                 </div>
                 <button type="submit" class="btn btn-success">Update Member Info</button>
             </form>
@@ -37,8 +37,8 @@
             <h1>Add a new Member!</h1>
             <form action="/members/new" method="post">
                 <div class="form-group">
-                    <label for="memberId">Teams:</label>
-                    <select id="memberId" name="memberId" required>
+                    <label for="teamId">Teams:</label>
+                    <select id="teamId" name="teamId" required>
                         {{#each teams}}
                             <option value="{{this.id}}">{{this.teamName}}</option>
                         {{/each}}
@@ -58,7 +58,7 @@
                 </div>
                 <div class ="form-group">
                     <label for="age">Age: </label>
-                    <input id="age" name="age" type="text" class="form-control" placeholder="enter age in years" required>
+                    <input id="age" name="age" type="number" class="form-control" placeholder="enter age in years" required>
                 </div>
                 <button type="submit" class="btn btn-success">Submit!</button>
             </form>

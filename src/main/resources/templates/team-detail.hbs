@@ -1,11 +1,11 @@
 {{#partial "content"}}
-    <h3>{{thisTeam.teamName}}<a href="/teams/{{team.id}}/edit">{{team.teamName}}<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
+    <h3>{{thisTeam.teamName}}<a href="/teams/{{thisTeam.id}}/edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
     <blockquote><p>{{thisTeam.teamDescription}}</p></blockquote>
     {{#if members}}
         <ul>
             <div class="well">
                 {{#each members}}
-                    <li><a href="/teams/{{memberId}}/members/{{id}}">{{name}}:</a></li>
+                    <li><a href="/teams/{{teamId}}/members/{{id}}">{{name}}:</a></li>
                 {{/each}}
             </div>
         </ul>

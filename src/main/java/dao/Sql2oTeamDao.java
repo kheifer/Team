@@ -40,8 +40,8 @@ public class Sql2oTeamDao implements TeamDao {
     @Override
     public List<Member> getAllMembersByTeamId(int id) {
         try(Connection con = sql2o.open()){
-            return con.createQuery("SELECT * FROM members WHERE memberId = :memberId")
-                    .addParameter("memberId", id)
+            return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                    .addParameter("teamId", id)
                     .executeAndFetch(Member.class);
         }
     }
@@ -49,7 +49,7 @@ public class Sql2oTeamDao implements TeamDao {
     @Override
     public Team findByMemberName(String memberName) {
         try(Connection con = sql2o.open()){
-            int id=(Integer) con.createQuery("SELECT memberId FROM members WHERE name = :name")
+            int id=(Integer) con.createQuery("SELECT teamId FROM members WHERE name = :name")
                     .addParameter("name", memberName)
                     .executeAndFetchFirst(Integer.class);
             return con.createQuery("SELECT * FROM team WHERE id = :id")

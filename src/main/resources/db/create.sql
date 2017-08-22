@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS members(
     homeTown VARCHAR,
     occupation VARCHAR,
     age INTEGER,
-    memberId INTEGER
+    teamId INTEGER
     );
 CREATE TABLE IF NOT EXISTS team(
     id int PRIMARY KEY auto_increment,

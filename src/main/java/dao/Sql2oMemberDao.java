@@ -16,7 +16,7 @@ public class Sql2oMemberDao implements MemberDao {
 
     @Override
     public void add(Member member) {
-        String sql = "INSERT INTO members(name, homeTown, occupation, age, memberId) VALUES (:name, :homeTown, :occupation, :age, :memberId)";
+        String sql = "INSERT INTO members(name, homeTown, occupation, age, teamId) VALUES (:name, :homeTown, :occupation, :age, :teamId)";
         try(Connection con = sql2o.open()){ //opens a connection(con)
             int id = (int) con.createQuery(sql) //makes a new (int)variable and queries the sql database
                     .bind(member) //maps the argument onto the query to pull information from it
@@ -50,25 +50,25 @@ public class Sql2oMemberDao implements MemberDao {
     @Override
     public List<Member> getAllMembersByMemberName(String name) {
             try(Connection con = sql2o.open()){
-                int id=(Integer) con.createQuery("SELECT memberId FROM members WHERE name = :name")
+                int id=(Integer) con.createQuery("SELECT teamId FROM members WHERE name = :name")
                         .addParameter("name", name)
                         .executeAndFetchFirst(Integer.class);
-                return con.createQuery("SELECT * FROM members WHERE memberId = :memberId")
-                        .addParameter("memberId", id)
+                return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                        .addParameter("teamId", id)
                         .executeAndFetch(Member.class);
             }
         }
 
     @Override
-    public void update(String name, String homeTown, String occupation, int age, int id, int memberId) {
-        String update = "UPDATE members SET(name, homeTown, occupation, age, memberId)=(:name, :homeTown, :occupation, :age, :memberId) WHERE id =:id";
+    public void update(String name, String homeTown, String occupation, int age, int id, int teamId) {
+        String update = "UPDATE members SET(name, homeTown, occupation, age, teamId)=(:name, :homeTown, :occupation, :age, :teamId) WHERE id =:id";
         try (Connection con = sql2o.open()) {
             con.createQuery(update)
                     .addParameter("name", name)
                     .addParameter("homeTown", homeTown)
                     .addParameter("occupation", occupation)
                     .addParameter("age", age)
-                    .addParameter("memberId", memberId)
+                    .addParameter("teamId", teamId)
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {

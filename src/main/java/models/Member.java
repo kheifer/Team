@@ -6,14 +6,14 @@ public class Member {
     private String occupation;
     private int age;
     private int id;
-    private int memberId;
+    private int teamId;
 
-    public Member(String name, String homeTown, String occupation, int age, int memberId){
+    public Member(String name, String homeTown, String occupation, int age, int teamId){
         this.name = name;
         this.homeTown = homeTown;
         this.occupation = occupation;
         this.age = age;
-        this.memberId = memberId;
+        this.teamId = teamId;
     }
     //Getters
     public String getName() {
@@ -31,8 +31,8 @@ public class Member {
     public int getId() {
         return id;
     }
-    public int getMemberId() {
-        return memberId;
+    public int getTeamId() {
+        return teamId;
     }
 
     //Setters
@@ -51,8 +51,8 @@ public class Member {
     public void setId(int id) {
         this.id = id;
     }
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     //equals & hashCode
@@ -65,7 +65,7 @@ public class Member {
         Member member = (Member) o;
 
         if (age != member.age) return false;
-        if (memberId != member.memberId) return false;
+        if (teamId != member.teamId) return false;
         if (!name.equals(member.name)) return false;
         if (!homeTown.equals(member.homeTown)) return false;
         return occupation.equals(member.occupation);
@@ -77,7 +77,7 @@ public class Member {
         result = 31 * result + homeTown.hashCode();
         result = 31 * result + occupation.hashCode();
         result = 31 * result + age;
-        result = 31 * result + memberId;
+        result = 31 * result + teamId;
         return result;
     }
 }

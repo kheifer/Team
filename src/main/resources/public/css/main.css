@@ -46,6 +46,7 @@ h1{
   font-family: 'Oswald', sans-serif;
   text-align: center;
 }
+
 .container{
   height: 100%;
 }
@@ -54,6 +55,10 @@ h1{
   opacity: 0.8;
   flex: 0 1 auto;
 
+}
+
+input:invalid {
+  border:1px solid red;
 }
 
  .footer {
