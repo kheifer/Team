@@ -147,7 +147,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             memberDao.deleteById(Integer.parseInt(request.params("id")));
             List<Team> teamList = teamDao.getAll();
-            model.put("neighborhoods", teamList);
+            model.put("teams", teamList);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
